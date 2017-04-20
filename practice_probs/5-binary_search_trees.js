@@ -1,12 +1,4 @@
-module.exports = {
-	makeNode,
-	insert,
-	contains,
-	treeForEach,
-	countNodes,
-	sum,
-	averageVal
-}
+export { Node };
 
 /*
 Binary Search Tree
@@ -15,47 +7,82 @@ Trees are powerful data structures which solve myriad computer science problems.
 The excellent quality of BSTs is how quickly they can insert or find a particular value.
 
 You are going to write a series of functions that, taken together, implement a binary search tree.
+
+
+"mocha $(find test -name '*.js' ! -path 'test/5-binary_search_trees-tests.js')"cN
 */
 
+class Node {
 
-
-
-function makeNode(val) {
-	return {
-		val: val,
-		left: null,
-		right: null,
+	constructor( val, left=null, right=null ){
+		this.val = val;
+		this.left = left;
+		this.right = right;
 	}
-}
 
-function insert(val, root) {
-	if ( !root ) {
-		root = makeNode(val);
-	} else if(val < root.val){
-		root.left = insert(val, root.left);
-	} else if (val > root.val){
-		root.right = insert(val, root.right);
-	} else {
-		return;
+	insert( val ){
+		if ( val < this.val ) {
+
+			if ( !this.left ) {
+				this.left = new Node( val );
+			} else {
+				this.left.insert( val );
+			}
+
+		} else if ( val > this.val ) {
+
+			if ( !this.right ) {
+				this.right = new Node( val );
+			} else {
+				this.right.insert( val );
+			}
+
+		} else {
+			return;
+		}
 	}
+
+	contains( val ){
+		if( !this ){
+			return false;
+		} else if( val < this.val ){
+			this.left.contains( val );
+		} else if( val > this.val ){
+			this.right.contains( val );
+		} else if( val === this.val ){
+			return true;
+		}
+	}
+
+	treeForEach( fn ){
+	}
+
+	countNodes(){
+		if( !this.left && !this.right ){
+			return 1;
+		} else {
+			return 1 + root.left.countNodes() + root.right.countNodes;
+		}
+	}
+
+	sum(){
+		if( !this.left && !this.right ){
+			return this.val;
+		} else {
+			return this.val + this.left.sum() + this.right.sum();
+		}
+	}
+
+	averageVal(){
+		return this.sum() / this.countNodes();
+	}
+
 }
 
-function contains(val, root) {
 
-}
 
-function treeForEach(root, fn) {
 
-}
 
-function countNodes(root) {
 
-}
 
-function sum(root) {
 
-}
-
-function averageVal(root) {
-
-}
