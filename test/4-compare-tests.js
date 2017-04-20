@@ -1,4 +1,4 @@
-var assert = require('chai').assert;
+var expect = require('chai').expect;
 var compare = require('../practice_probs/4-compare.js').compare;
 
 describe('#compare', function() {

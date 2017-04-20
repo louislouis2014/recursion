@@ -16,6 +16,10 @@ The excellent quality of BSTs is how quickly they can insert or find a particula
 
 You are going to write a series of functions that, taken together, implement a binary search tree.
 */
+
+
+
+
 function makeNode(val) {
 	return {
 		val: val,

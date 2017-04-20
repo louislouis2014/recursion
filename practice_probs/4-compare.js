@@ -16,12 +16,10 @@ function compare(val1, val2) {
 		var val1props = Object.getOwnPropertyNames(val1);
 		var val2props = Object.getOwnPropertyNames(val2);
 
-		if ( compare(val1props.length, val2props.length) ){
-			if( compare(val1props, val2props) ) {
-				return val1props.reduce( (acc, prop) => {
-					return acc && compare( val1[prop], val2[prop] )
-				}, true)
-			}
+		if( compare(val1props, val2props) ) {
+			return val1props.reduce( (acc, prop) => {
+				return acc && compare( val1[prop], val2[prop] )
+			}, true)
 		}
 	}
 	return false;

@@ -1,10 +1,10 @@
-var assert = require('chai').assert;
-var search = require('../practice_probs/5-binary_search_trees.js').search;
+var expect = require('chai').expect;
+var BST = require('../practice_probs/5-binary_search_trees.js');
 
 describe('BST', function() {
 
   describe('#makeNode', function() {
-    /**
+    /**re
      * BST.makeNode is a function that returns an object, also known as a node.
      * The object has three properties, one of which is a value passed into the function.
      * The other two properties are named left and right, and they refer to other nodes.
